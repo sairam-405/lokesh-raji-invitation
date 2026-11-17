@@ -4,7 +4,7 @@ export const content = {
   countdown: { target: "2026-12-24T03:18:00+05:30" },
   mapsUrl: "https://maps.app.goo.gl/xsJLU4nLSn8tpSXi8",
   receptionMapsUrl: "https://maps.app.goo.gl/sfgd3bta7ncGgeJe7?g_st=iw",
-  assets: { bridgePhoto: "/images/bridge-bg.png", music: "/audio/music.mp3" },
+  assets: { bridgePhoto: "/images/bridge-bg.png", music: "/audio/music.mp3", ganesh: "images/ganesh.png" },
 
   welcome: {
     pill: "💡 Tap to switch on the bridge lights",

@@ -68,6 +68,8 @@ export default function Invite() {
       ))}
 
       <div className="card"><div className="card-in">
+
+      <div className="ganesh" style={{ backgroundImage: `url(${c.assets.ganesh})` }}></div>
         <div className="c-eyebrow">{i.blessing}</div>
         <div className="c-it">{i.families}</div>
         <div className="invited">{i.invited}</div>

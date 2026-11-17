@@ -66,6 +66,8 @@ body{margin:0}
 .person{background:var(--cream);border:1px solid #ecdfc3;border-radius:20px;padding:0 18px 26px}
 .avatar{width:92px;height:92px;border-radius:50%;margin:-1px auto 14px;border:4px solid var(--gold2);
   background:#e8dcc0 center/cover;display:grid;place-items:center;font:600 30px 'Cormorant Garamond';color:var(--gold)}
+  .ganesh{width:92px;height:92px;border-radius:50%;margin:-1px auto 14px;
+    background: center/cover;display:grid;place-items:center;font:600 30px 'Cormorant Garamond';color:var(--gold)}
 .role{font:500 10px 'Montserrat';letter-spacing:.26em;color:#8c6a3a}
 .pname{font:500 22px/1.3 'Cormorant Garamond';color:var(--gold);margin:6px 0 10px}
 .parents{font:400 15px/1.5 'Cormorant Garamond'}
