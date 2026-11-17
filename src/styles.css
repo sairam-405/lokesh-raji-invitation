@@ -1,0 +1,292 @@
+:root{--gold:#a47c3f;--gold2:#d4af37;--ink:#2a2622;--cream:#f9f6ef;--paper:#fcfbf9}
+*{box-sizing:border-box}
+body{margin:0}
+
+/* ===== Welcome page ===== */
+.scene{position:fixed;inset:0;overflow:hidden;cursor:pointer;color:#fff;text-align:center;
+  background:linear-gradient(#1c2636,#2e3b4e 60%,#111a2a)}
+.photo{position:absolute;inset:0;background:url(/images/bridge-bg.png) center/cover;opacity:.15;transition:opacity 0.2s,filter 1.2s}
+.scene.lit .photo{opacity:.8;filter:sepia(.6) saturate(1.3) brightness(.9)}
+.glow{position:absolute;inset:0;opacity:0;transition:opacity 1.4s;
+  background:radial-gradient(ellipse at 50% 75%,rgba(255,190,90,.55),rgba(120,70,30,.35) 55%,transparent 80%)}
+.scene.lit .glow{opacity:1}
+.moon{position:absolute;top:60px;right:6%;width:64px;height:64px;border-radius:50%;background:#44505f;transition:all 1.2s}
+.scene.lit .moon{background:#e8e2d0;box-shadow:0 0 50px 12px rgba(255,240,200,.45)}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#cdd6e4;opacity:.6}
+.top{position:absolute;left:0;right:0;top:7%;padding:0 16px;display:flex;flex-direction:column;align-items:center}
+.pill{display:inline-flex;gap:8px;align-items:center;padding:11px 26px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.3);background:rgba(70,82,100,.7);color:#e8c868;
+  font:400 11px 'Montserrat';letter-spacing:.2em;text-transform:uppercase}
+.fade{transition:opacity .8s,transform .8s}
+.gone{opacity:0;transform:translateY(-10px);pointer-events:none;position:absolute}
+.welcome{font:400 clamp(28px,3.8vw,48px)/1.1 'Cormorant Garamond',serif;margin:20px 0 8px}
+.sub{font:300 clamp(11px,1.1vw,14px) 'Montserrat';opacity:.75}
+.eyebrow{font:400 clamp(9px,1vw,12px) 'Montserrat';letter-spacing:.28em;text-transform:uppercase;color:#e8c868;margin-bottom:4px}
+.names{font:400 clamp(38px,6vw,84px)/1.1 'Great Vibes',cursive;text-shadow:0 4px 24px rgba(0,0,0,.35)}
+.names i{font-size:.45em;color:#f3d57a;padding:0 .25em}
+.open{margin-top:20px;border:0;cursor:pointer;padding:15px 36px;border-radius:999px;color:#fff;
+  font:500 clamp(11px,1.1vw,14px) 'Montserrat';letter-spacing:.18em;text-transform:uppercase;
+  background:linear-gradient(135deg,#d9b040,#bd8c1e);box-shadow:0 0 40px rgba(240,190,60,.65);
+  animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.bridge{position:absolute;left:0;bottom:11%;width:100%;height:auto;aspect-ratio:1600/420;display:block}
+.truss{position:absolute;inset:0;width:100%;height:100%;opacity:.3}
+.bridge .arch{fill:none;stroke:#62748f;stroke-width:9;transition:stroke 1s}
+.bridge .arch2{fill:none;stroke:#62748f;stroke-width:3;transition:stroke 1s}
+.bridge .deck{fill:#2e3b50}
+.bridge .pier{fill:#34455c;transition:fill 1s}
+.bridge .pole{stroke:#53647d;stroke-width:3;transition:stroke 1s}
+.bridge .bulb{fill:#53647d;transition:fill 1s}
+.bridge .cone{fill:url(#cone);opacity:0;transition:opacity 1.2s}
+.bridge .halo{fill:#ffd978;opacity:0;transition:opacity 1.2s;filter:blur(5px)}
+.lit .bridge .arch{stroke:#f2cf88}.lit .bridge .arch2{stroke:#e2b73e}
+.lit .bridge .pole{stroke:#f4efe2}.lit .bridge .bulb{fill:#fff2c0}
+.lit .bridge .cone,.lit .bridge .halo{opacity:1}
+.lit .bridge .pier{fill:#465872}
+.lantern{position:absolute;width:22px;height:30px;border-radius:11px 11px 4px 4px;opacity:0;transition:opacity 1s;
+  background:linear-gradient(#ffd27a,#f08a2a);box-shadow:0 0 18px rgba(255,170,60,.9);animation:rise 12s linear infinite}
+.scene.lit .lantern{opacity:1}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-70vh)}}
+
+/* ===== Invite page ===== */
+.page{min-height:100vh;background:var(--cream);color:var(--ink);padding:48px 16px 120px;position:relative;overflow:hidden}
+.petal{position:absolute;width:14px;height:12px;border-radius:50%;background:#e8d49a;opacity:.7;animation:fall linear infinite;pointer-events:none}
+@keyframes fall{from{transform:translateY(-5vh) rotate(0)}to{transform:translateY(105vh) rotate(360deg)}}
+.card{position:relative;max-width:780px;margin:0 auto;background:var(--paper);border-radius:8px;box-shadow:0 10px 50px rgba(120,90,40,.12);padding:26px}
+.card-in{border:1px solid #e9dcc0;padding:44px 28px 36px;text-align:center}
+.c-eyebrow{font:400 11px 'Montserrat';letter-spacing:.28em;text-transform:uppercase;color:#8c6a3a}
+.c-it{font:italic 400 19px 'Cormorant Garamond';color:#6b5436;margin-top:4px}
+.invited{font:500 13px 'Montserrat';letter-spacing:.3em;margin:26px 0 14px}
+.big{font:400 clamp(44px,7vw,64px)/1 'Cormorant Garamond';color:var(--gold)}
+.and{display:flex;align-items:center;gap:16px;justify-content:center;font:400 16px 'Montserrat';letter-spacing:.3em;margin:4px 0}
+.and:before,.and:after{content:"";width:64px;height:1px;background:#d9c08a}
+.knot{font:500 14px 'Montserrat';letter-spacing:.28em;margin:26px 0}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center}
+@media(max-width:600px){.pair{grid-template-columns:1fr}}
+.person{background:var(--cream);border:1px solid #ecdfc3;border-radius:20px;padding:0 18px 26px}
+.avatar{width:92px;height:92px;border-radius:50%;margin:-1px auto 14px;border:4px solid var(--gold2);
+  background:#e8dcc0 center/cover;display:grid;place-items:center;font:600 30px 'Cormorant Garamond';color:var(--gold)}
+.role{font:500 10px 'Montserrat';letter-spacing:.26em;color:#8c6a3a}
+.pname{font:500 22px/1.3 'Cormorant Garamond';color:var(--gold);margin:6px 0 10px}
+.parents{font:400 15px/1.5 'Cormorant Garamond'}
+.rule{width:90px;height:2px;background:#e3d3ac;margin:30px auto}
+.date{font:500 clamp(19px,3vw,26px) 'Cormorant Garamond';letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+.ev h4{font:500 17px 'Cormorant Garamond';letter-spacing:.22em;margin:18px 0 2px;text-transform:uppercase}
+.ev p{font:400 16px 'Cormorant Garamond';margin:0;color:#5a4a36}
+.event{font:bold 20px 'Cormorant Garamond';letter-spacing:.28em;margin-top:30px;padding-top:24px;border-top:1px solid #e3d3ac}
+.venue{font:500 11px 'Montserrat';letter-spacing:.28em;margin-top:30px;padding-top:24px;}
+.vname{font:500 22px 'Cormorant Garamond';letter-spacing:.08em;color:var(--gold);margin-top:10px}
+.sec{max-width:780px;margin:56px auto 0;text-align:center;position:relative}
+.sec h2{font:500 clamp(22px,3.6vw,32px) 'Cormorant Garamond';margin:6px 0 22px}
+.scratch{position:relative;width:min(100%,340px);height:128px;margin:0 auto;border-radius:10px;overflow:hidden;
+  display:grid;place-items:center;background:#fffdf6;border:1px solid #e2cd90;box-shadow:0 8px 24px rgba(120,90,40,.2)}
+.scratch b{font:600 26px 'Cormorant Garamond';color:var(--gold)}
+.scratch canvas{position:absolute;inset:0;touch-action:none;cursor:grab}
+.count{display:flex;gap:12px;justify-content:center;margin-top:32px}
+.cell{width:70px;padding:16px 0 10px;background:var(--paper);border:1px solid #ecdfc3;border-radius:10px;box-shadow:0 8px 20px rgba(120,90,40,.1)}
+.cell b{display:block;font:600 26px 'Cormorant Garamond';color:var(--gold)}
+.cell span{font:400 10px 'Montserrat';letter-spacing:.12em;text-transform:uppercase}
+.venue-card{margin:52px auto 0;max-width:680px;background:var(--paper);border:1px solid #ecdfc3;padding:34px 26px;
+  box-shadow:0 10px 30px rgba(120,90,40,.1);text-align:center}
+.vc-title{font:500 30px 'Cormorant Garamond'}
+.vc-addr{font:400 12px 'Montserrat';letter-spacing:.1em;margin:4px 0 12px;text-transform:uppercase}
+.vc-times{font:500 12px/1.6 'Montserrat';color:var(--gold)}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn{cursor:pointer;text-decoration:none;font:500 11px 'Montserrat';letter-spacing:.12em;text-transform:uppercase;
+  padding:12px 22px;border-radius:999px;border:1.5px solid var(--gold);color:var(--ink);background:transparent}
+.btn.solid{background:var(--gold);color:#fff}
+.thanks{font:italic 400 22px 'Cormorant Garamond';color:#6b5436;margin:52px 0 6px}
+.thanks-sub{font:400 11px/1.6 'Montserrat';letter-spacing:.06em;text-transform:uppercase;max-width:700px;margin:0 auto}
+.dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:999px;background:#fffdf8;border:1px solid #e9dcc0;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.dock button{border:0;background:none;cursor:pointer;font:500 13px 'Montserrat';color:var(--gold);padding:10px 16px;border-radius:999px}
+.dock .on{background:var(--gold);color:#fff}
+.dock .snd{width:38px;height:38px;padding:0;background:#f6efe0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+/* ===== v3: shorter bridge, sequential lights, moving train, flowing river ===== */
+.bridge{position:absolute;left:0;bottom:15%;width:100%;height:auto;aspect-ratio:1600/300;display:block}
+.water{position:absolute;left:0;right:0;bottom:0;height:15.5%;overflow:hidden;
+  background:linear-gradient(#1b2740,#0d1424)}
+.water svg{width:100%;height:100%;display:block}
+
+/* lights switch on one after another */
+.bridge .cone,.bridge .halo{transition:opacity .9s}
+.lit .bridge .cone,.lit .bridge .halo,.lit .bridge .bulb,.lit .bridge .pole,
+.lit .bridge .arch,.lit .bridge .arch2,.lit .bridge .cable line,.lit .bridge .cable circle{transition-delay:var(--d,0s)}
+.bridge .arch,.bridge .arch2{transition:stroke 1s}
+.bridge .cable line{stroke:#6a7c97;stroke-width:1.6;opacity:.7;transition:stroke 1s}
+.bridge .cable circle{fill:#6a7c97;transition:fill 1s}
+.lit .bridge .cable line{stroke:#f2cf88}
+.lit .bridge .cable circle{fill:#fff0b0;filter:drop-shadow(0 0 5px #ffd36b)}
+.bridge .deck-top{fill:#59687f;transition:fill 1s}
+.lit .bridge .deck-top{fill:#dfe3ea}
+.bridge .zig{fill:none;stroke:#46566f;stroke-width:2}
+
+/* train */
+.bridge .train{opacity:0;transition:opacity 1s 2.2s}
+.lit .bridge .train{opacity:1}
+.bridge .train>g{animation:drive 16s linear infinite}
+@keyframes drive{from{transform:translateX(-720px)}to{transform:translateX(1650px)}}
+.bridge .coach{fill:#1d2a40;stroke:#d8dde8;stroke-width:1.5}
+.bridge .win{fill:#f6c453}
+
+/* river flow */
+.flow{animation:flow linear infinite}
+@keyframes flow{to{transform:translateX(-180px)}}
+.ripple{fill:#8fa3c0;opacity:.18;transition:fill 1.2s,opacity 1.2s}
+.lit .ripple{fill:#e9c46a;opacity:.55}
+.lit .water{background:linear-gradient(#2a2b3a,#0f1626)}
+@media(prefers-reduced-motion:reduce){.bridge .train>g,.flow{animation:none!important}}
+
+/* ===== v4: smaller type + images, responsive cards, V truss, sound button ===== */
+.pill{padding:9px 20px;font-size:10px}
+.welcome{font:400 clamp(22px,3vw,36px)/1.1 'Cormorant Garamond',serif;margin:16px 0 6px}
+.sub{font-size:clamp(10px,1vw,12px)}
+.eyebrow{font-size:clamp(8px,.9vw,11px)}
+.names{font:400 clamp(32px,4.8vw,64px)/1.1 'Great Vibes',cursive}
+.open{margin-top:16px;padding:12px 28px;font-size:clamp(10px,1vw,12px)}
+.moon{width:46px;height:46px;top:56px}
+.lantern{width:14px;height:20px;border-radius:7px 7px 3px 3px;box-shadow:0 0 12px rgba(255,170,60,.9)}
+.star{width:2px;height:2px}
+
+.card-in{padding:36px 22px 30px}
+.c-eyebrow{font-size:10px}
+.c-it{font-size:16px}
+.invited{font-size:11px;margin:22px 0 12px}
+.big{font-size:clamp(36px,5.6vw,50px)}
+.and{font-size:13px}
+.and:before,.and:after{width:48px}
+.knot{font-size:12px;margin:22px 0}
+.avatar{width:72px;height:72px;border-width:3px;font-size:24px}
+.role{font-size:9px}
+.pname{font-size:18px}
+.parents{font-size:13px}
+.date{font-size:clamp(16px,2.4vw,21px)}
+.ev h4{font-size:14px}
+.ev p{font-size:14px}
+.venue{font-size:10px}
+.vname{font-size:18px}
+.sec h2{font-size:clamp(18px,3vw,26px)}
+.scratch b{font-size:22px}
+.cell{width:60px;padding:13px 0 8px}
+.cell b{font-size:21px}
+.cell span{font-size:9px}
+.vc-title{font-size:25px}
+.vc-addr{font-size:11px}
+.vc-times{font-size:11px}
+.btn{font-size:10px;padding:10px 18px}
+.thanks{font-size:18px}
+.thanks-sub{font-size:10px}
+.dock button{font-size:12px;padding:9px 14px}
+
+/* groom & bride: stacked on mobile, side by side on larger screens */
+.pair{grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.pair{grid-template-columns:1fr 1fr}}
+
+/* proper V-shaped truss on the deck */
+.bridge .zig{fill:none;stroke:#5b7396;stroke-width:2.5;stroke-linejoin:miter}
+.bridge .rail{fill:#46566f}
+.lit .bridge .zig{stroke:#8ea4c7}
+
+/* mute / unmute button (all pages) */
+.sound{position:fixed;top:14px;right:14px;z-index:20;width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(212,175,55,.7);background:rgba(255,253,248,.92);font-size:16px;cursor:pointer;
+  display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+
+/* ===== v5: scratch result card, avatar spacing, mobile layout ===== */
+.scratch{height:150px;width:min(100%,360px);border-radius:18px;border:1px solid #e6d3a8;
+  background:linear-gradient(135deg,#fffdf9,#faf1e6);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:4px;box-shadow:0 8px 24px rgba(120,90,40,.15)}
+.scratch .lbl{font:500 11px 'Montserrat';letter-spacing:.32em;color:#8c6a3a}
+.scratch .time{font:600 32px/1.1 'Cormorant Garamond';color:var(--gold)}
+.scratch .note{font:500 12px 'Montserrat';color:#4a3b2c;padding:0 10px}
+
+/* photo circle no longer touches the card edge */
+.person{padding:22px 16px 24px}
+.avatar{margin:0 auto 12px}
+
+.dock{bottom:calc(14px + env(safe-area-inset-bottom))}
+
+@media(max-width:700px){
+  .bridge{aspect-ratio:auto;height:170px;bottom:13%}
+  .water{height:13.5%}
+  .top{top:9%}
+  .pill{display:inline-block;max-width:92%;text-align:center;line-height:1.6;letter-spacing:.1em;padding:9px 16px}
+  .moon{width:36px;height:36px;top:58px;right:5%}
+  .page{padding:60px 10px 110px}
+  .card{padding:10px}
+  .card-in{padding:26px 14px 24px}
+  .big{font-size:40px}
+  .sec{margin-top:44px}
+  .count{gap:8px}
+  .cell{width:58px}
+  .venue-card{padding:24px 14px;margin-top:40px}
+  .btns .btn{width:100%;text-align:center}
+}
+@media(max-width:380px){
+  .names{font-size:30px}
+  .cell{width:52px}
+  .scratch .time{font-size:28px}
+}
+
+/* ===== v6: closing buttons, footer names, blessings shower ===== */
+.btn.grad{background:linear-gradient(135deg,#9c7838,#c4a05c);color:#fff;border-color:transparent;
+  box-shadow:0 6px 16px rgba(160,120,50,.3)}
+.btn.white{background:#fff;color:#7b5a22;border-color:#c9a45c}
+.footer-names{font:400 clamp(20px,3vw,28px) 'Cormorant Garamond';letter-spacing:.2em;color:var(--gold);
+  margin-top:44px;text-transform:uppercase}
+.shower{position:fixed;inset:0;pointer-events:none;z-index:15;overflow:hidden}
+.shower i{position:absolute;top:-24px;border-radius:50% 50% 50% 8%;opacity:.95;animation:shw linear forwards}
+@keyframes shw{to{transform:translate(var(--x),112vh) rotate(540deg);opacity:.8}}
+
+/* ===== v7: fluid type + image sizes (scale with screen width), mobile polish ===== */
+/* Welcome page */
+.pill{font-size:clamp(12px,.3vw + 10.6px,14px);padding:10px 20px}
+.welcome{font:400 clamp(30px,2.2vw + 22px,52px)/1.1 'Cormorant Garamond',serif;margin:18px 0 8px}
+.sub{font-size:clamp(13px,.45vw + 10.5px,16px);line-height:1.5;padding:0 8px}
+.eyebrow{font-size:clamp(10px,.4vw + 8.6px,14px);letter-spacing:.24em}
+.names{font:400 clamp(46px,4.2vw + 29px,92px)/1.1 'Great Vibes',cursive}
+.open{font-size:clamp(12px,.3vw + 10.8px,15px);padding:clamp(13px,.8vw + 9px,20px) clamp(24px,2vw + 16px,44px);margin-top:clamp(16px,2vh,24px)}
+.moon{width:clamp(40px,3vw + 28px,76px);height:clamp(40px,3vw + 28px,76px);top:clamp(70px,10vh,100px);right:6%}
+.lantern{width:clamp(15px,1vw + 10px,22px);height:auto;aspect-ratio:11/15}
+.top{top:clamp(56px,11vh,120px)}
+.sound{width:clamp(38px,1vw + 32px,46px);height:clamp(38px,1vw + 32px,46px);font-size:clamp(16px,.4vw + 14px,20px)}
+
+/* Invite page */
+.c-eyebrow{font-size:clamp(11px,.3vw + 9.8px,14px)}
+.c-it{font-size:clamp(18px,.5vw + 16px,22px)}
+.invited{font-size:clamp(12px,.35vw + 10.6px,15px)}
+.big{font-size:clamp(50px,5vw + 31px,76px)}
+.and{font-size:clamp(14px,.3vw + 13px,18px)}
+.knot{font-size:clamp(13px,.4vw + 11.5px,17px)}
+.avatar{width:clamp(86px,5vw + 62px,112px);height:clamp(86px,5vw + 62px,112px);font-size:clamp(28px,1vw + 24px,36px)}
+.role{font-size:clamp(10px,.2vw + 9.3px,12px)}
+.pname{font-size:clamp(20px,.6vw + 17.7px,26px)}
+.parents{font-size:clamp(15px,.4vw + 13.5px,18px)}
+.date{font-size:clamp(19px,1vw + 15px,28px)}
+.ev h4{font-size:clamp(16px,.4vw + 14.5px,20px)}
+.ev p{font-size:clamp(16px,.4vw + 14.5px,19px)}
+.venue{font-size:clamp(11px,.3vw + 9.8px,13px)}
+.vname{font-size:clamp(20px,.7vw + 17.4px,28px)}
+.sec h2{font-size:clamp(22px,1.2vw + 17.5px,34px)}
+.scratch{height:clamp(150px,8vw + 120px,190px)}
+.scratch .lbl{font-size:clamp(11px,.3vw + 10px,13px)}
+.scratch .time{font-size:clamp(32px,1vw + 28px,42px)}
+.scratch .note{font-size:clamp(12px,.3vw + 11px,14px)}
+.cell{width:clamp(64px,5vw + 46px,88px)}
+.cell b{font-size:clamp(24px,.6vw + 21.7px,30px)}
+.cell span{font-size:clamp(10px,.2vw + 9.3px,12px)}
+.vc-title{font-size:clamp(28px,.8vw + 25px,38px)}
+.vc-addr{font-size:clamp(12px,.3vw + 10.9px,14px)}
+.vc-times{font-size:clamp(12px,.3vw + 10.9px,14px)}
+.btn{font-size:clamp(11px,.3vw + 9.9px,13px)}
+.thanks{font-size:clamp(21px,.8vw + 18px,28px)}
+.thanks-sub{font-size:clamp(12px,.3vw + 10.9px,14px)}
+.footer-names{font-size:clamp(22px,1vw + 18px,32px)}
+.dock button{font-size:clamp(13px,.3vw + 11.8px,15px)}
+
+/* v7 fixes: bottom bar never wraps, moon clear of the headline on phones */
+.dock{width:max-content;max-width:calc(100vw - 24px)}
+.dock button{white-space:nowrap}
+@media(max-width:700px){.moon{top:clamp(250px,33vh,300px);right:8%}}
