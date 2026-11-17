@@ -24,12 +24,12 @@ export const content = {
     and: "AND",
     knot: "ARE TYING THE KNOT",
     groom: {
-      initial: "V", photo: "/images/groom.jpg", role: "THE GROOM",
+      initial: "", photo: "/images/groom.jpeg", role: "THE GROOM",
       name: "Chi. Thotakura Lokesh", rel: "S/O",
       parents: ["Sri Thotakura Srinivas", "& Smt. Thotakura Subba Laxmi"],
     },
     bride: {
-      initial: "S", photo: "/images/bride.jpg", role: "THE BRIDE",
+      initial: "", photo: "/images/bride.jpeg", role: "THE BRIDE",
       name: "Chi. La. Sow. Korla Raji", rel: "D/O",
       parents: ["Sri Korla Veera Venkata Satyanarayana", "& Smt. Korla Durga Bhavani"],
     },
