@@ -69,7 +69,7 @@ export const content = {
       start: "2026-12-24T03:18:00+05:30",
       durationHours: 3,
       summary: "Lokesh & Raji Wedding",
-      location: "Sri Prasanna Vighneshwara Function Hall, Kakinada Road, Rajahmundry",
+      location: "Sri Prasanna Vighneshwara Function Hall, Kakinada Road, Ramachandrapuram",
       description: "Muhurtham 3:18 AM on Dec 24.",
     },
   },
